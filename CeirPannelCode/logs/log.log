@@ -1,0 +1,108 @@
+2019-09-23 18:23:15,318 DEBUG [ResourceBundleMessageInterpolator.java:89] Loaded expression factory via original TCCL
+2019-09-23 18:23:15,336 DEBUG [ValidatorFactoryImpl.java:578] HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2019-09-23 18:23:15,336 DEBUG [ValidatorFactoryImpl.java:579] HV000234: Using org.hibernate.validator.internal.engine.resolver.JPATraversableResolver as ValidatorFactory-scoped traversable resolver.
+2019-09-23 18:23:15,336 DEBUG [ValidatorFactoryImpl.java:580] HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2019-09-23 18:23:15,337 DEBUG [ValidatorFactoryImpl.java:581] HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2019-09-23 18:23:15,337 DEBUG [ValidatorFactoryImpl.java:582] HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2019-09-23 18:23:15,450 INFO [StartupInfoLogger.java:50] Starting App v0.0.1-SNAPSHOT on pc-PC with PID 6504 (C:\Users\pc\git\ceircode_stakeholder\CeirPannelCode\target\CeirPannelCode.war started by pc in C:\Users\pc\git\ceircode_stakeholder\CeirPannelCode\target)
+2019-09-23 18:23:15,451 DEBUG [StartupInfoLogger.java:53] Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2019-09-23 18:23:15,453 INFO [SpringApplication.java:662] No active profile set, falling back to default profiles: default
+2019-09-23 18:23:15,551 INFO [AbstractApplicationContext.java:590] Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@8c3b9d: startup date [Mon Sep 23 18:23:15 IST 2019]; root of context hierarchy
+2019-09-23 18:23:17,506 INFO [AutowiredAnnotationBeanPostProcessor.java:153] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-09-23 18:23:17,687 INFO [PostProcessorRegistrationDelegate.java:326] Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$50a9bc86] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-23 18:23:17,777 INFO [AbstractAddressingEndpointMapping.java:236] Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-09-23 18:23:17,841 INFO [PostProcessorRegistrationDelegate.java:326] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ac11f787] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-23 18:23:18,549 INFO [TomcatWebServer.java:91] Tomcat initialized with port(s): 8080 (http)
+2019-09-23 18:23:18,576 INFO [DirectJDKLog.java:180] Initializing ProtocolHandler ["http-nio-8080"]
+2019-09-23 18:23:18,597 INFO [DirectJDKLog.java:180] Starting service [Tomcat]
+2019-09-23 18:23:18,597 INFO [DirectJDKLog.java:180] Starting Servlet Engine: Apache Tomcat/8.5.32
+2019-09-23 18:23:18,614 INFO [DirectJDKLog.java:180] The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\ProgramData\Oracle\Java\javapath;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\PuTTY\;C:\Program Files\nodejs\;C:\Users\pc\AppData\Roaming\npm;C:\Users\pc\AppData\Local\Programs\Microsoft VS Code\bin;.]
+2019-09-23 18:23:21,429 INFO [DirectJDKLog.java:180] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-09-23 18:23:21,991 INFO [DirectJDKLog.java:180] Initializing Spring embedded WebApplicationContext
+2019-09-23 18:23:21,992 INFO [ServletWebServerApplicationContext.java:285] Root WebApplicationContext: initialization completed in 6441 ms
+2019-09-23 18:23:22,250 INFO [ServletRegistrationBean.java:187] Servlet dispatcherServlet mapped to [/]
+2019-09-23 18:23:22,252 INFO [ServletRegistrationBean.java:187] Servlet messageDispatcherServlet mapped to [/services/*]
+2019-09-23 18:23:22,258 INFO [AbstractFilterRegistrationBean.java:245] Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-09-23 18:23:22,259 INFO [AbstractFilterRegistrationBean.java:245] Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-09-23 18:23:22,259 INFO [AbstractFilterRegistrationBean.java:245] Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-09-23 18:23:22,259 INFO [AbstractFilterRegistrationBean.java:245] Mapping filter: 'requestContextFilter' to: [/*]
+2019-09-23 18:23:22,556 INFO [HikariDataSource.java:110] HikariPool-1 - Starting...
+2019-09-23 18:23:22,822 INFO [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2019-09-23 18:23:22,924 INFO [LocalContainerEntityManagerFactoryBean.java:361] Building JPA container EntityManagerFactory for persistence unit 'default'
+2019-09-23 18:23:22,961 DEBUG [LogHelper.java:102] PersistenceUnitInfo [
+	name: default
+	persistence provider classname: null
+	classloader: org.springframework.boot.loader.LaunchedURLClassLoader@675d3402
+	excludeUnlistedClasses: true
+	JTA datasource: null
+	Non JTA datasource: HikariDataSource (HikariPool-1)
+	Transaction type: RESOURCE_LOCAL
+	PU root URL: file:/C:/Users/pc/git/ceircode_stakeholder/CeirPannelCode/target/CeirPannelCode.war
+	Shared Cache Mode: UNSPECIFIED
+	Validation Mode: AUTO
+	Jar files URLs []
+	Managed classes names [
+		org.gl.ceir.CeirPannelCode.Model.user
+		org.gl.ceir.CeirPannelCode.Model.userTest]
+	Mapping files names []
+	Properties []
+2019-09-23 18:23:23,000 DEBUG [IntegratorServiceImpl.java:46] Adding Integrator [org.hibernate.cfg.beanvalidation.BeanValidationIntegrator].
+2019-09-23 18:23:23,006 DEBUG [IntegratorServiceImpl.java:46] Adding Integrator [org.hibernate.secure.spi.JaccIntegrator].
+2019-09-23 18:23:23,014 DEBUG [IntegratorServiceImpl.java:46] Adding Integrator [org.hibernate.cache.internal.CollectionCacheInvalidator].
+2019-09-23 18:23:23,015 DEBUG [IntegratorServiceImpl.java:46] Adding Integrator [org.hibernate.jpa.event.spi.JpaIntegrator].
+2019-09-23 18:23:23,100 INFO [Version.java:45] HHH000412: Hibernate Core {5.2.17.Final}
+2019-09-23 18:23:23,102 INFO [Environment.java:213] HHH000206: hibernate.properties not found
+2019-09-23 18:23:23,121 DEBUG [ServiceBinding.java:68] Overriding existing service binding [org.hibernate.secure.spi.JaccService]
+2019-09-23 18:23:23,127 WARN [AbstractApplicationContext.java:558] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+2019-09-23 18:23:23,127 INFO [HikariDataSource.java:381] HikariPool-1 - Shutdown initiated...
+2019-09-23 18:23:23,135 INFO [HikariDataSource.java:383] HikariPool-1 - Shutdown completed.
+2019-09-23 18:23:23,140 INFO [DirectJDKLog.java:180] Stopping service [Tomcat]
+2019-09-23 18:23:23,163 INFO [ConditionEvaluationReportLoggingListener.java:101] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-09-23 18:23:23,169 ERROR [SpringApplication.java:845] Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1699)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:573)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1089)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:859)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:398)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1258)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246)
+	at org.gl.ceir.CeirPannelCode.App.main(App.java:17)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48)
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87)
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:50)
+	at org.springframework.boot.loader.WarLauncher.main(WarLauncher.java:58)
+Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+	at org.hibernate.boot.spi.XmlMappingBinderAccess.<init>(XmlMappingBinderAccess.java:43)
+	at org.hibernate.boot.MetadataSources.<init>(MetadataSources.java:87)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.<init>(EntityManagerFactoryBuilderImpl.java:209)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.<init>(EntityManagerFactoryBuilderImpl.java:164)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:51)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1758)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1695)
+	... 24 common frames omitted
+Caused by: java.lang.ClassNotFoundException: javax.xml.bind.JAXBException
+	at java.base/java.net.URLClassLoader.findClass(Unknown Source)
+	at java.base/java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.springframework.boot.loader.LaunchedURLClassLoader.loadClass(LaunchedURLClassLoader.java:93)
+	at java.base/java.lang.ClassLoader.loadClass(Unknown Source)
+	... 35 common frames omitted
