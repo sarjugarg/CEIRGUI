@@ -46,8 +46,8 @@
 				//var usertype = $('#userType').val() == null ? null : $("#userType option:selected").text(); 
 				
 				var filterRequest={
-						//"endDate":$('#endDate').val(),
-						//"startDate":$('#startDate').val(),
+						"endDate":$('#endDate').val(),
+						"startDate":$('#startDate').val(),
 						
 						"filteredUsername": username,
 						"txnId":$('#transactionid').val(),
@@ -209,7 +209,7 @@
 							var viewFilter="viewFilter";
 							$("#alertTableDiv").append("<div class='filter_btn'><button type='button' class='btn primary botton' id='submitFilter'/></div>");
 							$("#alertTableDiv").append("<div class='filter_btn'><button type='button'  class='btn primary botton' id='clearFilter'>"+$.i18n('clearFilter')+"</button></div>");
-							$("#alertTableDiv").append("<div class='filter_btn'><a href='JavaScript:void(0)' type='button' class='export-to-excel right'  onclick='exportAlertData()'>"+$.i18n('Export')+"<i class='fa fa-file-excel-o' aria-hidden='true'></i></a></div>");
+							$("#alertTableDiv").append("<div class='filter_btn'><a href='JavaScript:void(0)' type='button' class='export-to-excel right'  onclick='exportData()'>"+$.i18n('Export')+"<i class='fa fa-file-excel-o' aria-hidden='true'></i></a></div>");
 							$('#clearFilter').attr("onclick", "Resetfilter('viewFilter')");
 							for(i=0; i<button.length; i++){
 								$('#'+button[i].id).text(button[i].buttonTitle);
@@ -271,8 +271,11 @@
 				var info = table.page.info(); 
 				var pageNo=info.page;
 				var pageSize =info.length;
-				
+				var featureName = $('#feature').val() == null ? null : $("#feature option:selected").text();
+				var username = $("#username").val() != "" ? $("#username").val() : $("#username").val();
 				var filterRequest={
+						"endDate":$('#endDate').val(),
+						"startDate":$('#startDate').val(),
 						"feature" : parseInt($('#feature').val()),
 						"usertype" : $('#userType').val(),
 						"username" : $("body").attr("data-selected-username"),
@@ -280,13 +283,11 @@
 						"userTypeId": parseInt($("body").attr("data-userTypeID")),
 						"userType":$("body").attr("data-roleType"),
 						"userId" : parseInt($("body").attr("data-userID")),
+						"filteredUsername": username,
+						"txnId":$('#transactionid').val(),
 						"pageNo":parseInt(pageNo),
 						"pageSize":parseInt(pageSize)
-						
-						/*"userId":parseInt(userId),
-						"featureId":parseInt(featureId),
-						"userTypeId": parseInt($("body").attr("data-userTypeID")),
-						"userType":$("body").attr("data-roleType")*/
+					
 				}
 				console.log(JSON.stringify(filterRequest))
 				var token = $("meta[name='_csrf']").attr("content");

@@ -52,7 +52,7 @@
 		//**************************************************filter table**********************************************
 		
 		function filterFieldTable(lang){
-			alert("action is--"+action);
+			
 			window.tag_val= $('#filterTagId').val() == undefined ? TagId : $('#filterTagId').val();
 			if(window.tag_val=="" || window.tag_val==null){
 				window.tag_val=TagId;
@@ -66,15 +66,11 @@
 					"userTypeId": parseInt($("body").attr("data-userTypeID")),
 					"userType":$("body").attr("data-roleType"),
 					"tag": window.tag_val,
-					"userId":parseInt(userId),
-					"featureId":parseInt(featureId),
-					"userTypeId": parseInt($("body").attr("data-userTypeID")),
-					"userType":$("body").attr("data-roleType"),
-					"userName" : $("body").attr("data-selected-username"),
+					"username" : $("body").attr("data-selected-username"),
 					"displayName" : displayName,
 					"description":$('#decriptionID').val(),
 					"field":$('#fieldID').val()
-			}				
+			}					
 			if(lang=='km'){
 				var langFile="./resources/i18n/khmer_datatable.json";
 			}
@@ -139,9 +135,9 @@
 						"columns": result,
 						
 					});
-					if(url.searchParams.get("action") == 'viewAll'){
+					/*if(url.searchParams.get("action") == 'viewAll'){
 						$('#fieldManagementLibraryTable').DataTable().column(6).visible(false);
-					}
+					}*/
 					
 					$('div#initialloader').delay(300).fadeOut('slow');
 					

@@ -27,22 +27,22 @@
 
 		function table(url,dataUrl){
 		
-		var state= $("#State").val() == '' ||  $("#State").val() == undefined ? null : $("#State").val();
-		var name = $("#filterRule").val() =='' ||  $("#filterRule").val() == undefined ? null  : $("#filterRule").val();
-		var description = $("#filterDescription").val() == '' ||  $("#filterDescription").val() == undefined ? null  : $("#filterDescription").val();
-		
-		
-			var filterRequest={
-					  	"state": state,
-						"userId":parseInt($("body").attr("data-userID")),
-						"featureId":parseInt(featureId),
-						"userTypeId": parseInt($("body").attr("data-userTypeID")),
-						"userName":$("body").attr("data-selected-username"),
-						"roleType":$("body").attr("data-roleType"),
-						"name" :  name,
-						"description" : description,
-					
-			}
+			var state= $("#State").val() == '' ||  $("#State").val() == undefined ? null : $("#State").val();
+			var name = $("#filterRule").val() =='' ||  $("#filterRule").val() == undefined ? null  : $("#filterRule").val();
+			var description = $("#filterDescription").val() == '' ||  $("#filterDescription").val() == undefined ? null  : $("#filterDescription").val();
+			
+			
+				var filterRequest={
+						  	"state": state,
+							"userId":parseInt($("body").attr("data-userID")),
+							"featureId":parseInt(featureId),
+							"userTypeId": parseInt($("body").attr("data-userTypeID")),
+							"userName":$("body").attr("data-selected-username"),
+							"roleType":$("body").attr("data-roleType"),
+							"name" :  name,
+							"description" : description,
+						
+				}
 			if(lang=='km'){
 				var langFile='./resources/i18n/khmer_datatable.json';
 			}
@@ -170,7 +170,7 @@
 									"<input type='text' class='select-dropdown' readonly='true' data-activates='select-options-1023d34c-eac1-aa22-06a1-e420fcc55868' value='Consignment Status'>"+
 
 									"<select id="+dropdown[i].id+" class='select2 initialized'>"+
-									"<option value='' selected>"+dropdown[i].title+
+									"<option value='null' selected>"+dropdown[i].title+
 									"</option>"+
 									"</select>"+
 									"</div>"+
@@ -319,7 +319,6 @@
 							"pageSize":parseInt(pageSize)
 						
 				}
-				
 				//console.log(JSON.stringify(filterRequest))
 				var token = $("meta[name='_csrf']").attr("content");
 				var header = $("meta[name='_csrf_header']").attr("content");

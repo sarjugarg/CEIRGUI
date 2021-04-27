@@ -45,11 +45,15 @@ function operatorDatatable(lang){
 	var filterRequest={
 			"endDate":$('#endDate').val(),
 			"startDate":$('#startDate').val(),
+			"serviceDump" : serviceDump,
+			"fileType" : parseInt(fileType),
+			
 			"userId":parseInt(userId),
 			"userTypeId": parseInt($("body").attr("data-userTypeID")),
 			"userType":$("body").attr("data-roleType"),
-			"serviceDump" : serviceDump,
-			"fileType" : parseInt(fileType)
+			"featureId":parseInt(featureId),
+			"userName":$("body").attr("data-selected-username"),
+			"roleType":$("body").attr("data-roleType")
 		}
 	
 		if(lang=='km'){
@@ -73,14 +77,15 @@ function operatorDatatable(lang){
 				destroy:true,
 				"serverSide": true,
 				orderCellsTop : true,
-				"ordering" : false,
+				"ordering" : true,
 				"bPaginate" : true,
-				"bFilter" : true,
+				"bFilter" : false,
 				"bInfo" : true,
 				"bSearchable" : true,
 				"oLanguage": {  
 							"sUrl": langFile  
 						},
+						"aaSorting": [],
 						initComplete: function() {
 					 		$('.dataTables_filter input')
 	       .off().on('keyup', function(event) {
@@ -109,7 +114,10 @@ function operatorDatatable(lang){
 					}
 
 				},
-				"columns": result
+				"columns": result,
+				columnDefs : [
+					{ orderable: false, targets: -1 }
+					]
 			});
 			
 			$('#operatorLibraryTable input').unbind();
@@ -145,53 +153,49 @@ function pageRendering(URL){
 		dataType: "json",
 		success: function(data){
 			data.userStatus == "Disable" ? $('#btnLink').addClass( "eventNone" ) : $('#btnLink').removeClass( "eventNone" );
-
+			
 			var elem='<p class="PageHeading">'+data.pageTitle+'</p>';		
 			$("#pageHeader").append(elem);
 			var button=data.buttonList;
-
 			var date=data.inputTypeDateList;
 			for(i=0; i<date.length; i++){
 				if(date[i].type === "date"){
-				$("#operatorTableDiv").append("<div class='input-field col s6 m2'>"+
-									"<div id='enddatepicker' class='input-group'>"+
-									"<input class='form-control datepicker' type='text' onchange='checkDate(startDate,endDate)' id="+date[i].id+" autocomplete='off'>"+
-									"<label for="+date[i].id+">"+date[i].title
-									+"</label>"+
-									"<span	class='input-group-addon' style='color: #ff4081'>"+
-									"<i	class='fa fa-calendar' aria-hidden='true' style='float: right; margin-top: -37px;'>"+"</i>"+"</span>");
-				$( "#"+date[i].id ).datepicker({
-					dateFormat: "yy-mm-dd",
-					 maxDate: new Date()
-		        });
-				}
-				else if(date[i].type === "select"){
-					$("#operatorTableDiv").append("<div class='input-field col s6 m2' ><input type="+date[i].type+" id="+date[i].id+" maxlength='19' /><label for="+date[i].id+" class='center-align'>"+date[i].title+"</label></div>");
-					
+					$("#operatorTableDiv").append("<div class='input-field'>"+
+							"<div id='enddatepicker' class='input-group'>"+
+							"<input class='form-control datepicker' type='text' id="+date[i].id+" autocomplete='off' onchange='checkDate(startDate,endDate)'>"+
+							"<label for="+date[i].id+">"+date[i].title
+							+"</label>"+
+							"<span	class='input-group-addon' style='color: #ff4081'>"+
+							"<i	class='fa fa-calendar' aria-hidden='true' style='float: right; margin-top: -37px;'>"+"</i>"+"</span>");
+					$( "#"+date[i].id ).datepicker({
+						dateFormat: "yy-mm-dd",
+						 maxDate: new Date()
+			        });
+				}else if(date[i].type === "text"){
+					$("#operatorTableDiv").append("<div class='input-field' ><input type="+date[i].type+" id="+date[i].id+" maxlength='50' /><label for="+date[i].id+" class='center-align'>"+date[i].title+"</label></div>");
+				}else if(date[i].type === "select"){
+					var dropdownDiv=
+						$("#operatorTableDiv").append("<div class='selectDropdwn'>"+
+								
+								"<div class='select-wrapper select2  initialized'>"+
+								"<span class='caret'>"+"</span>"+
+								"<input type='text' class='select-dropdown' readonly='true' data-activates='select-options-1023d34c-eac1-aa22-06a1-e420fcc55868' value='Consignment Status'>"+
+
+								"<select id="+date[i].id+" class='select2 initialized'>"+
+								"<option value='-1' selected>"+date[i].title+
+								"</option>"+
+								"</select>"+
+								"</div>"+
+						"</div>");
 				}
 				 
 			} 
-
-			// dynamic dropdown portion
-			var dropdown=data.dropdownList;
-			for(i=0; i<dropdown.length; i++){
-				var dropdownDiv=
-					$("#operatorTableDiv").append("<div class='col s6 m2 selectDropdwn'>"+
-								
-									"<div class='select-wrapper select2  initialized'>"+
-									"<span class='caret'>"+"</span>"+
-									"<input type='text' class='select-dropdown' readonly='true' data-activates='select-options-1023d34c-eac1-aa22-06a1-e420fcc55868' value='Consignment Status'>"+
-
-									"<select id="+dropdown[i].id+" class='select2 initialized'>"+
-									"<option value='-1'>"+dropdown[i].title+
-									"</option>"+
-									"</select>"+
-									"</div>"+
-							"</div>");
-			}
-			
-			$("#operatorTableDiv").append("<div class=' col s3 m2 l1'><button class='btn primary botton' type='button' id='submitFilter'></button></div>");
-			$("#operatorTableDiv").append("<div class=' col s3 m2 l1'><a onclick='exportButton()' type='button' class='export-to-excel right'>"+$.i18n('Export')+" <i class='fa fa-file-excel-o' aria-hidden='true'></i></a></div>");
+		
+			var viewFilter="viewFilter";
+			$("#operatorTableDiv").append("<div class='filter_btn'><button class='btn primary botton' type='button' id='submitFilter'></button></div>");
+			$("#operatorTableDiv").append("<div class='filter_btn'><button type='button' class='btn primary botton' id='clearFilter'>"+$.i18n('clearFilter')+"</button></div>");
+			$("#operatorTableDiv").append("<div class='filter_btn'><a onclick='exportButton()' type='button' class='export-to-excel right'>"+$.i18n('Export')+" <i class='fa fa-file-excel-o' aria-hidden='true'></i></a></div>");
+			$('#clearFilter').attr("onclick", "Resetfilter('viewFilter')");
 			for(i=0; i<button.length; i++){
 				$('#'+button[i].id).text(button[i].buttonTitle);
 				$('#'+button[i].id).attr("onclick", button[i].buttonURL);
@@ -232,7 +236,7 @@ function dispatchDateValidation(){
 	if(now.getDate().toString().charAt(0) != '0'){
 		currentDate='0'+now.getDate();
 
-		/* alert("only date="+currentDate); */
+		/ alert("only date="+currentDate); /
 	}
 	else{
 		currentDate=now.getDate();
@@ -260,7 +264,7 @@ function arrivalDateValidation(){
 	if(now.getDate().toString().charAt(0) != '0'){
 		currentDate='0'+now.getDate();
 
-		/* alert("only date="+currentDate); */
+		/ alert("only date="+currentDate); /
 	}
 	else{
 		currentDate=now.getDate();
@@ -306,3 +310,8 @@ function exportButton(){
 	window.location.href="./exportOperatorDetails?startDate="+startDate+"&endDate="+endDate+"&userTypeId="+userTypeId+"&userType="+userType+"&serviceDump="+serviceDump+"&fileType="+fileType+"&pageSize="+pageSize+"&pageNo="+pageNo;
 }
 
+function Resetfilter(formID){
+	$('#'+formID).trigger('reset');
+	$("label").removeClass('active');
+	operatorDatatable(lang,null);
+}
